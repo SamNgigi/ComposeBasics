@@ -1,6 +1,9 @@
 package com.example.composebasics.ui.theme
 
 import androidx.compose.ui.graphics.Color
+// Rally Colors
+val Green500 = Color(0xFF1EB980)
+val DarkBlue900 = Color(0xFF26282F)
 
 //My Colors Light Color Scheme
 val Navy = Color(0xFF073042)

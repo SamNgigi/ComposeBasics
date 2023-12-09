@@ -11,10 +11,23 @@ import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.compositeOver
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.em
+import androidx.compose.ui.unit.sp
 import androidx.core.view.WindowCompat
+
+// Rally is always dark themed.
+val RallyColorPalette = darkColorScheme(
+    primary = Green500,
+    surface = DarkBlue900,
+    onSurface = Color.White,
+    background = DarkBlue900,
+    onBackground = Color.White
+)
 
 private val MyLightColorScheme = lightColorScheme(
     surface = Blue,
@@ -86,3 +99,60 @@ fun ComposeBasicsTheme(
         content = content
     )
 }
+
+// RALLY MATERIAL THEME
+@Composable
+fun RallyTheme(content: @Composable () -> Unit){
+    MaterialTheme(
+        colorScheme = RallyColorPalette,
+        typography = Typography,
+        content = content // from runtime.Composable
+    )
+}
+
+@Composable
+fun RallyDialogThemeOverlay(content: @Composable () -> Unit){
+    /**
+     * Theme overlay for dialogs
+     **/
+    val dialogColor = darkColorScheme(
+        primary = Color.White,
+        surface = Color.White.copy(alpha = 0.12f).compositeOver(Color.Black),
+        onSurface = Color.White
+    )
+
+    // Copying over the Typography and replacing some text styles
+    val currentTypography = MaterialTheme.typography
+    val dialogTypography = currentTypography.copy(
+        bodyMedium = currentTypography.bodyLarge.copy(
+            fontWeight = FontWeight.Normal,
+            fontSize = 20.sp,
+            lineHeight = 28.sp,
+            letterSpacing = 1.sp
+        ),
+        labelLarge = currentTypography.labelLarge.copy(
+            fontWeight = FontWeight.Bold,
+            letterSpacing = 0.2.em
+        )
+    )
+
+    MaterialTheme(
+        colorScheme = dialogColor,
+        typography = currentTypography,
+        content = content
+    )
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
