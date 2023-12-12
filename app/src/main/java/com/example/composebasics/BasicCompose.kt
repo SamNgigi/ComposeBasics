@@ -45,12 +45,14 @@ import com.example.composebasics.ui.theme.ComposeBasicsTheme
 
 @Composable
 fun MyApp(modifier: Modifier = Modifier){
-    var shouldShowOnboarding by rememberSaveable { mutableStateOf(true) }
-    Surface(modifier){
-        if(shouldShowOnboarding){
-            OnboardingScreen(onContinueClicked = {shouldShowOnboarding = false})
-        } else {
-            MyGreetings()
+    ComposeBasicsTheme {
+        var shouldShowOnboarding by rememberSaveable { mutableStateOf(true) }
+        Surface(modifier){
+            if(shouldShowOnboarding){
+                OnboardingScreen(onContinueClicked = {shouldShowOnboarding = false})
+            } else {
+                MyGreetings()
+            }
         }
     }
 }

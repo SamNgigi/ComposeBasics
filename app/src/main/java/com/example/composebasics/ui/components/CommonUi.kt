@@ -109,14 +109,14 @@ private fun BaseRow(
         ){
             Text(
                 text = moneySign,
-                style = typography.titleMedium,
-                fontWeight = FontWeight.Bold,
+                style = typography.titleLarge,
+//                fontWeight = FontWeight.Bold,
                 modifier = Modifier.align(Alignment.CenterVertically)
             )
             Text(
                 text = formattedAmount,
-                style = typography.titleMedium,
-                fontWeight = FontWeight.Bold,
+                style = typography.titleLarge,
+//                fontWeight = FontWeight.Bold,
                 modifier = Modifier.align(Alignment.CenterVertically)
 
             )
@@ -146,9 +146,10 @@ fun AccountRow(
         modifier = modifier,
         color = account.color,
         title = account.name,
-        subtitle = stringResource(R.string.account_redacted),
+        subtitle = stringResource(R.string.account_redacted) + _accountDecimalFormat.format(account.number),
         amount = account.balance,
-        negative = false)
+        negative = false
+    )
 }
 
 @Composable

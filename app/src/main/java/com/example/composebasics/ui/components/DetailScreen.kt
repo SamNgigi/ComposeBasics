@@ -27,7 +27,7 @@ fun <T> StatementBody(
     circleLabel: String,
     rows: @Composable (T) -> Unit
 ){
-    Column(modifier = modifier.verticalScroll((rememberScrollState()))){
+    Column(modifier = modifier.verticalScroll(rememberScrollState())){
         Box(Modifier.padding(16.dp)){
             val accountsProportion = items.extractProportions { amounts(it) }
             val circleColors = items.map {colors(it)}
@@ -52,13 +52,13 @@ fun <T> StatementBody(
                 )
             }
         }
-    }
-    Spacer(Modifier.height(10.dp))
-    Card{
-       Column(modifier = Modifier.padding(12.dp)){
-           items.forEach{ item ->
-               rows(item)
-           }
-       }
+        Spacer(Modifier.height(10.dp))
+        Card{
+            Column(modifier = Modifier.padding(12.dp)){
+                items.forEach{ item ->
+                    rows(item)
+                }
+            }
+        }
     }
 }

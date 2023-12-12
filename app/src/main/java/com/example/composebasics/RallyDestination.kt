@@ -17,33 +17,33 @@ interface RallyDestination{
     val route: String
 }
 // Rally app nav destinations
-object Overview: RallyDestination {
+object OverviewNavInterface: RallyDestination {
     override val icon = Icons.Filled.PieChart
     override val route = "overview"
 }
-object Accounts: RallyDestination {
+object AccountsNavInterface: RallyDestination {
     override val icon = Icons.Filled.AttachMoney
     override val route = "accounts"
 }
-object SingleAccount: RallyDestination {
+object SingleAccountNavInterface: RallyDestination {
     override val icon = Icons.Filled.Money
     override val route = "single_account"
     // TODO: Might cause an issue. Review later.
-    private const val accountTypeArg = "account_type"
+    const val accountTypeArg = "account_type"
     val routeWithArgs = "$route/{$accountTypeArg}"
     val arguments = listOf(
         navArgument(accountTypeArg) {type = NavType.StringType}
     )
-    val deepLink = listOf(
+    val deepLinks = listOf(
         navDeepLink {uriPattern = "rally://$route/{$accountTypeArg}"}
     )
 }
-object Bills: RallyDestination {
+object BillsNavInterface: RallyDestination {
     override val icon = Icons.Filled.MoneyOff
-    override val route = "accounts"
+    override val route = "bills"
 }
 
 // To be displayed in the top RallyTabRow
-val rallyTabRowScreens= listOf(Overview, Accounts, Bills)
+val rallyTabRowScreens= listOf(OverviewNavInterface, AccountsNavInterface, BillsNavInterface)
 
 

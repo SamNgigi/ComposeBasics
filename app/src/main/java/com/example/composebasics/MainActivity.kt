@@ -54,11 +54,8 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            ComposeBasicsTheme {
-                // A surface container using the 'background' color from the theme
-                MyApp(modifier = Modifier.fillMaxSize())
-
-            }
+            // MyApp(modifier = Modifier.fillMaxSize())
+            RallyApp()
         }
     }
 }

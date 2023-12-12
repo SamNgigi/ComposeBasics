@@ -53,7 +53,7 @@ fun SingleAccountScreen(
     }
 }
 
-@Preview(showBackground = true, widthDp = 320, heightDp = 520)
+@Preview(showBackground = true, widthDp = 375, heightDp = 812)
 @Composable
 fun AccountScreenPreview(){
     RallyTheme {
@@ -61,7 +61,7 @@ fun AccountScreenPreview(){
     }
 }
 
-@Preview(showBackground = true, widthDp = 320, heightDp = 520)
+@Preview(showBackground = true, widthDp = 375, heightDp = 812)
 @Composable
 fun SingleAccountScreenPreview(){
     RallyTheme {
