@@ -7,6 +7,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.composebasics.ui.accounts.AccountsScreen
+import com.example.composebasics.ui.accounts.SingleAccountScreen
 import com.example.composebasics.ui.bills.BillsScreen
 import com.example.composebasics.ui.overview.OverviewScreen
 
@@ -51,6 +52,7 @@ fun RallyNavHost(
             deepLinks = SingleAccountNavInterface.deepLinks
         ){ navBackStackEntry ->
             val accountType = navBackStackEntry.arguments?.getString(SingleAccountNavInterface.accountTypeArg)
+            SingleAccountScreen()
         }
     }
 }

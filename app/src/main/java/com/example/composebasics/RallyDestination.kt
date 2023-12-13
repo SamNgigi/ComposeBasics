@@ -28,7 +28,6 @@ object AccountsNavInterface: RallyDestination {
 object SingleAccountNavInterface: RallyDestination {
     override val icon = Icons.Filled.Money
     override val route = "single_account"
-    // TODO: Might cause an issue. Review later.
     const val accountTypeArg = "account_type"
     val routeWithArgs = "$route/{$accountTypeArg}"
     val arguments = listOf(
